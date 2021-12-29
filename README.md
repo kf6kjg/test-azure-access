@@ -13,7 +13,7 @@ The following must be installed on your machine:
 1. Set up Azure CLI defaults
 
    ```sh
-   export TEST_NAME='test-azure-access'
+   export TEST_NAME="test-azure-access-$(date +%s)"
    export azureRegistry="$(echo "acr-$TEST_NAME" | tr -d '-')"
    export imageName="$TEST_NAME:test"
    export imageUrl="$azureRegistry.azurecr.io/$imageName"
@@ -138,4 +138,5 @@ Remove all the test resources via the following:
 
 ```sh
 az group delete --name arg-$TEST_NAME
+az keyvault purge --name arg-$TEST_NAME
 ```
